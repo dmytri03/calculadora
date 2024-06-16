@@ -1,39 +1,103 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calculadora</title>
-<link rel="stylesheet" href="calcu.css">
+<link rel="stylesheet" href="trabajo.css">
+<title>Documento Mejorado</title>
 </head>
 <body>
+<canvas id="lienzo" width="500" height="300" style="border:1px solid blue"></canvas>
+<script>
+window.onload = function() {
+    var hoja = document.getElementById("lienzo");
+    var dibujo = hoja.getContext("2d");
+    
+    // Fondo del cielo
+    var cielo = dibujo.createLinearGradient(0, 0, 0, 300);
+    cielo.addColorStop(0, "#87CEEB");
+    cielo.addColorStop(1, "#B5CDFF");
+    dibujo.fillStyle = cielo;
+    dibujo.fillRect(0, 0, 500, 300);
 
-<div class="calculator">
-  <!-- Pantalla de la calculadora -->
-  <input type="text" class="screen" id="screen" readonly>
-  <!-- Botones de la calculadora -->
-  <div class="buttons">
-    <button onclick="clearScreen()">C</button>
-    <button onclick="appendInput('/')">/</button>
-    <button onclick="appendInput('*')">*</button>
-    <button onclick="appendInput('7')">7</button>
-    <button onclick="appendInput('8')">8</button>
-    <button onclick="appendInput('9')">9</button>
-    <button onclick="appendInput('-')">-</button>
-    <button onclick="appendInput('4')">4</button>
-    <button onclick="appendInput('5')">5</button>
-    <button onclick="appendInput('6')">6</button>
-    <button onclick="appendInput('+')">+</button>
-    <button onclick="appendInput('1')">1</button>
-    <button onclick="appendInput('2')">2</button>
-    <button onclick="appendInput('3')">3</button>
-    <button onclick="calculate()">=</button>
-    <button onclick="appendInput('0')">0</button>
-    <button onclick="appendInput('.')">.</button>
-  </div>
-</div>
-
-<script src="calcu.js"></script>
+    // Dibujar nubes
+    dibujo.fillStyle = "rgba(232,236,247,0.8)";
+    dibujo.beginPath();
+    dibujo.arc(50, 60, 40, 0, Math.PI * 2, true);
+    dibujo.arc(100, 80, 30, 0, Math.PI * 2, true);
+    dibujo.arc(150, 60, 40, 0, Math.PI * 2, true);
+    dibujo.arc(300, 40, 50, 0, Math.PI * 2, true);
+    dibujo.arc(350, 60, 30, 0, Math.PI * 2, true);
+    dibujo.arc(400, 40, 40, 0, Math.PI * 2, true);
+    dibujo.closePath();
+    dibujo.fill();
+    
+    // Dibujar el sol
+    dibujo.fillStyle = "#FFD700";
+    dibujo.beginPath();
+    dibujo.arc(450, 50, 40, 0, Math.PI * 2, true);
+    dibujo.closePath();
+    dibujo.fill();
+    
+    // Dibujar el mar
+    var mar = dibujo.createLinearGradient(0, 150, 0, 300);
+    mar.addColorStop(0, "#1E90FF");
+    mar.addColorStop(1, "#000080");
+    dibujo.fillStyle = mar;
+    dibujo.fillRect(0, 150, 500, 150);
+    
+    // Dibujar una pequeña isla
+    dibujo.fillStyle = "#D2B48C";
+    dibujo.beginPath();
+    dibujo.moveTo(200, 250);
+    dibujo.quadraticCurveTo(250, 200, 300, 250);
+    dibujo.closePath();
+    dibujo.fill();
+    
+    // Dibujar una palmera en la isla
+    dibujo.fillStyle = "#8B4513";
+    dibujo.fillRect(240, 180, 10, 70);
+    dibujo.fillStyle = "#2E8B57";
+    dibujo.beginPath();
+    dibujo.moveTo(245, 180);
+    dibujo.lineTo(220, 160);
+    dibujo.lineTo(225, 170);
+    dibujo.lineTo(205, 150);
+    dibujo.lineTo(210, 160);
+    dibujo.lineTo(185, 140);
+    dibujo.lineTo(190, 150);
+    dibujo.lineTo(180, 130);
+    dibujo.lineTo(245, 180);
+    dibujo.closePath();
+    dibujo.fill();
+    
+    dibujo.beginPath();
+    dibujo.moveTo(245, 180);
+    dibujo.lineTo(270, 160);
+    dibujo.lineTo(265, 170);
+    dibujo.lineTo(285, 150);
+    dibujo.lineTo(280, 160);
+    dibujo.lineTo(305, 140);
+    dibujo.lineTo(300, 150);
+    dibujo.lineTo(310, 130);
+    dibujo.lineTo(245, 180);
+    dibujo.closePath();
+    dibujo.fill();
+    
+    // Dibujar un barco con vela
+    dibujo.fillStyle = "#8B4513";
+    dibujo.fillRect(100, 200, 80, 20); // Cuerpo del barco
+    dibujo.fillRect(135, 150, 10, 50); // Mástil del barco
+    dibujo.fillStyle = "#FFFFFF";
+    dibujo.beginPath();
+    dibujo.moveTo(140, 150);
+    dibujo.lineTo(170, 175);
+    dibujo.lineTo(140, 175);
+    dibujo.closePath();
+    dibujo.fill();
+}
+</script>
+<noscript>Tu navegador no soporta CANVAS. Deberías actualizar tu navegador</noscript>
+<img src="imagen_falsa.png">
 </body>
 </html>
